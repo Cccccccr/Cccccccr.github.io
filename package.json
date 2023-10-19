@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && sh ./scripts/build.sh",
+    "build": "next build && sh ./scripts/build.sh && ts-node ./scripts/build.ts",
     "start": "next start",
     "lint": "next lint"
   },
