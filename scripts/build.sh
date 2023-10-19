@@ -1,3 +1,6 @@
+rm -rf ./docs 
+rm -rf ./_next
+
 if [ ! -d "./docs" ]; then
   mkdir ./docs
 fi
@@ -6,10 +9,10 @@ fi
 cp -f ./.next/server/app/index.html ./docs/index.html
 
 # copy static files
-if [ ! -d "./docs/_next" ]; then
-  mkdir ./docs/_next
+if [ ! -d "./_next" ]; then
+  mkdir ./_next
 fi
-cp -f -r ./.next/static ./docs/_next/static/
+cp -f -r ./.next/static ./_next/static/
 
 # copy public files
 cp -f ./public/* ./docs/
