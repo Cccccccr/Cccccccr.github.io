@@ -1,23 +1,7 @@
 const fs = require('fs');
 
 function modifyHTMLString(htmlString: string): string {
-  const headStartTag = '<head>';
-  const headEndTag = '</head>';
-
-  const headStartIndex = htmlString.indexOf(headStartTag);
-  const headEndIndex = htmlString.indexOf(headEndTag);
-
-  if (headStartIndex === -1 || headEndIndex === -1) {
-    // 如果找不到 <head> 或 </head> 标签，则返回原始的 HTML 字符串
-    return htmlString;
-  }
-
-  const headContent = htmlString.substring(headStartIndex + headStartTag.length, headEndIndex);
-  const modifiedHeadContent = headContent.replace(/\/_next\/static/g, 'static');
-
-  const modifiedHTML = htmlString.substring(0, headStartIndex + headStartTag.length) +
-    modifiedHeadContent +
-    htmlString.substring(headEndIndex);
+  const modifiedHTML = htmlString.replace(/\/_next\/static/g, 'static');
 
   return modifiedHTML;
 }
